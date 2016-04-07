@@ -19,6 +19,8 @@ var ConfigDropper = React.createClass({
       date: moment(this.props.post.date).format(dateFormat),
       tags: toText(this.props.post.tags, tac.tags),
       categories: toText(this.props.post.categories, tac.categories),
+      keywords: this.props.post.keywords,
+      description: this.props.post.description,
     }
   },
 
@@ -31,6 +33,8 @@ var ConfigDropper = React.createClass({
       date: moment(nextProps.post.date).format(dateFormat),
       tags: toText(nextProps.post.tags, tac.tags),
       categories: toText(nextProps.post.categories, tac.categories),
+      keywords: nextProps.post.keywords,
+      description: nextProps.post.description,
     })
   },
 
@@ -69,6 +73,18 @@ var ConfigDropper = React.createClass({
     this.setState({open: false})
   },
 
+  _onChangeKeywords: function (e) {
+    this.setState({
+      keywords: e.target.value
+    })
+  },
+
+  _onChangeDesc: function (e) {
+    this.setState({
+      description: e.target.value
+    })
+  },
+
   _onChangeDate: function (e) {
     this.setState({
       date: e.target.value
@@ -89,16 +105,23 @@ var ConfigDropper = React.createClass({
     var tac = this.props.tagsAndCategories
     var tags = toText(this.props.post.tags, tac.tags)
     var categories = toText(this.props.post.categories, tac.categories)
+    var keywords = this.props.post.keywords
+    var description = this.props.post.description
+
     var textDate = date.toISOString()
     if (textDate === this.props.post.date &&
         _.isEqual(this.state.categories, categories) &&
-        _.isEqual(this.state.tags, tags)) {
+        _.isEqual(this.state.tags, tags) &&
+        _.isEqual(this.state.keywords, keywords) &&
+        _.isEqual(this.state.description, description)) {
       return
     }
     this.props.onChange({
       date: date.toISOString(),
       categories: this.state.categories,
-      tags: this.state.tags
+      tags: this.state.tags,
+      keywords: this.state.keywords,
+      description: this.state.description
     })
   },
 
@@ -124,6 +147,20 @@ var ConfigDropper = React.createClass({
           options={this.props.tagsAndCategories.categories}
           values={this.state.categories}
           onChange={this._onChange.bind(null, 'categories')}/>
+      </div>
+      <div className="config_section">
+        <div className="config_section-title">关键词</div>
+        <input
+          className="config_date"
+          value={this.state.keywords}
+          onChange={this._onChangeKeywords}/>
+      </div>
+      <div className="config_section">
+        <div className="config_section-title">描述</div>
+        <textarea
+          className="config_date"
+          value={this.state.description}
+          onChange={this._onChangeDesc}/>
       </div>
     </div>
   },

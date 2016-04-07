@@ -30,7 +30,7 @@ module.exports = function (model, id, update, callback, hexo) {
     frontMatter = split.data
     compiled = hfm.parse([frontMatter, '---', split.content].join('\n'));
 
-  var preservedKeys = ['title', 'date', 'tags', 'categories', '_content'];
+  var preservedKeys = ['title', 'date', 'tags', 'categories', '_content', 'keywords', 'description'];
   var prev_full = post.full_source,
     full_source = prev_full;
   if (update.source && update.source !== post.source) {
