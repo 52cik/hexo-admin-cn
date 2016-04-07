@@ -47,7 +47,7 @@ module.exports = function (model, id, update, callback, hexo) {
 
   delete update._content
 
-  var raw = hfm.stringify(compiled);
+  var raw = hfm.stringify(compiled, {prefixSeparator: true}); // md 开头添加 ---
   update.raw = raw
   update.updated = moment()
 

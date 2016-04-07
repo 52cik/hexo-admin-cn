@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/52cik/hexo-admin-cn/issues"
   },
-  "homepage": "https://github.com/52cik/hexo-admin-cn#readme"
+  "homepage": "https://github.com/52cik/hexo-admin-cn#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.5.0",
