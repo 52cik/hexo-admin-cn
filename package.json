@@ -1,7 +1,7 @@
 {
-  "name": "hexo-admin",
-  "version": "2.0.1",
-  "description": "Hexo Admin 中文版本",
+  "name": "hexo-admin-cn",
+  "version": "2.1.0",
+  "description": "Hexo Admin 中文版本 (自改版)",
   "main": "index.js",
   "scripts": {
     "prepublish": "gulp build"
@@ -10,12 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/52cik/hexo-admin-cn.git"
   },
-  "keywords": [
-    "hexo",
-    "admin",
-    "dashboard",
-    "plugin"
-  ],
+  "keywords": [],
   "author": "Jared Forsyth <jared@jaredforsyth.com>",
   "license": "MIT",
   "bugs": {
